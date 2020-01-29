@@ -1,0 +1,8 @@
+application: nn4mc
+version: 0
+runtime: python3
+api_version: 1
+threadsafe: false
+handlers:
+- url: /.*
+  script: serve.nn4mc_app
