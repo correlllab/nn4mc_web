@@ -1,6 +1,7 @@
-application: nn4mc
+application: nn4mc-web
+env: standard
 version: 0
-runtime: python3
+runtime: python37
 api_version: 1
 threadsafe: false
 handlers:
