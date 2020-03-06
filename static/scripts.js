@@ -20,7 +20,7 @@ function submitButtonToggle() {
     $submitButton.prop('disabled', false);
   } else {
     $submitButton.prop('disabled', true);
-  } 
+  }
 }
 
 function uploadCard(event) {
@@ -49,6 +49,22 @@ function clearInputs() {
   $inputTitle.val("");
   $inputType.val("");
   $chosenFile.val("")
+}
+
+//COOPER
+//This function will five the file data to the python server
+//Not entirely sure about the "function(err...)" part
+//Need some kind of loading screen
+function translateFile()
+{
+  var data = //Get file upload from html
+
+  $.post("/postdata", {
+    file_data: data
+  }, function(err, req, resp){
+    //Redirect user to page with results
+    window.location.href = "";
+  });
 }
 
 // document.getElementById("yourFileInput").files[0].fileName;
