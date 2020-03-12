@@ -57,14 +57,18 @@ function clearInputs() {
 //Need some kind of loading screen
 function translateFile()
 {
-  var data = //Get file upload from html
+  var data = 1//Get file upload from html
 
-  $.post("/postdata", {
-    file_data: data
-  }, function(err, req, resp){
+  $.post("/postdata",
+  {file_data: data},
+  function(err, req, resp){
     //Redirect user to page with results
-    window.location.href = "";
+    window.location.href = "test";
   });
 }
+
+$( "#submit-button" ).click(function(){
+    translateFile();
+  });
 
 // document.getElementById("yourFileInput").files[0].fileName;
