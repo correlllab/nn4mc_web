@@ -1,21 +1,24 @@
 from flask import Flask, render_template, request, jsonify
+import os
 
 app = Flask(__name__)
+
+#Weird caching fix found online: https://stackoverflow.com/questions/41144565/flask-does-not-see-change-in-js-file
+def dir_last_updated(folder):
+    return str(max(os.path.getmtime(os.path.join(root_path, f))
+                   for root_path, dirs, files in os.walk(folder)
+                   for f in files))
 
 #Loads homepage
 @app.route('/', methods=['GET'])
 def homepage():
-    return render_template('homepage.html')
+    return render_template('homepage.html',
+                            last_updated=dir_last_updated('static'))
 
 #Loads test page
 @app.route('/test', methods=['GET'])
 def test():
     return render_template('test.html')
-
-# #Loading screen while file is being processed
-# @app.route('/loading', methods=['GET'])
-# def loading():
-#     return render_template('loading_screen.html')
 
 #Used by JS to send file data to python for processing
 @app.route('/postdata', methods=['POST'])

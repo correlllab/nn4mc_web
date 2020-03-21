@@ -58,17 +58,22 @@ function clearInputs() {
 function translateFile()
 {
   var data = 1//Get file upload from html
-
+  console.log('Hello')
   $.post("/postdata",
   {file_data: data},
   function(err, req, resp){
     //Redirect user to page with results
-    window.location.href = "test";
+    //window.location.href = "test";
   });
 }
 
 $( "#submit-button" ).click(function(){
     translateFile();
+  });
+
+$( "#test" ).click(function(){
+    consol.log('Clicked')
+    document.getElementById('test').classList.toggle('running')
   });
 
 // document.getElementById("yourFileInput").files[0].fileName;

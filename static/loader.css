@@ -1,0 +1,74 @@
+/* From https://loading.io/button/ */
+
+.loader {
+  position:relative;transition:all .3s;
+  transition-timing-function:ease-in;
+}
+
+.loader>.ld {
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:1em;
+  height:1em;
+  margin:-0.5em;
+  opacity:0;
+  z-index:-1;
+  transition:all .3s;
+  transition-timing-function:ease-in;
+}
+
+.loader>.ld>* {
+  width:1em;
+  height:1em;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-0.5em,-0.5em);
+}
+
+.loader.running>.ld {
+  opacity:1;
+  z-index:auto;
+  visibility:visible;
+}
+
+.loader:before {
+  content:" ";
+  display:block;
+  opacity:0;
+  position:absolute;
+  z-index:-1;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  transition:all .3s;transition-timing-function:ease-in;
+  background:rgba(240,240,240,0.8);
+}
+
+.loader.running>.ld {
+  z-index:4001;
+}
+
+.loader.running:before {
+  opacity:1;
+  z-index:4000;
+  display:block;
+}
+
+.loader.running>.ld,.loader.running:before {
+  position:fixed;
+}
+
+.loader:before {
+  background:rgba(255,255,255,0.8);
+}
+
+.loader>.ld {
+  color:rgba(255,255,255,0.8);
+}
+
+.loader:before {
+  background:rgba(0,0,0,0.6);
+}
