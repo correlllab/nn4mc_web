@@ -57,23 +57,29 @@ function clearInputs() {
 //Need some kind of loading screen
 function translateFile()
 {
-  var data = 1//Get file upload from html
-  console.log('Hello')
+  var data = 1;//Get file upload from html
+
   $.post("/postdata",
   {file_data: data},
   function(err, req, resp){
-    //Redirect user to page with results
-    //window.location.href = "test";
+    //Just for now so you see loading screen.
+    //setTimeout(function(){ toggle_ld(); }, 3000);
+
+    //Update data in html page (NOTE: Not gonna redirect)
+    console.log(resp.responseText);
+    
   });
 }
 
-$( "#submit-button" ).click(function(){
+function toggle_ld()
+{
+  document.getElementById('submit-button').classList.toggle('running');
+}
+
+$("#submit-button").click(function(){
+    toggle_ld();
     translateFile();
   });
 
-$( "#test" ).click(function(){
-    consol.log('Clicked')
-    document.getElementById('test').classList.toggle('running')
-  });
 
 // document.getElementById("yourFileInput").files[0].fileName;
