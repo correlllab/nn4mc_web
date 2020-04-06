@@ -155,19 +155,19 @@ aside {
 }
 
 #delete-button {
-  background-image: url('icons/delete.svg');
+  background-image: url('../icons/delete.svg');
   background-size: cover;
 }
 
 #delete-button:focus {
-  background-image: url('icons/delete-active.svg');
+  background-image: url('../icons/delete-active.svg');
 }
 
 #love-button {
-  background-image: url('icons/favorite.svg');
+  background-image: url('../icons/favorite.svg');
   background-size: cover;
 }
 
 #love-button:focus {
-  background-image: url('icons/favorite-active.svg');
+  background-image: url('../icons/favorite-active.svg');
 }
