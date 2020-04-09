@@ -18,6 +18,14 @@ def homepage():
     return render_template('homepage.html',
                             last_updated=dir_last_updated('static'))
 
+
+#Loads documentation page
+@app.route('/', methods=['GET'])
+def documentation():
+    return render_template('documentation.html',
+                            last_updated=dir_last_updated('static'))
+
+
 #Used by JS to send file data to python for processing
 @app.route('/postdata', methods=['POST'])
 def post_file_data():
@@ -27,6 +35,7 @@ def post_file_data():
     files = json.dumps('hi')
 
     return files
+
 
 #Currently not a thing, could be used for graph visualization
 @app.route('/plot/<imgdata>')
