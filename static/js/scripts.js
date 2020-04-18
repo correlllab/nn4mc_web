@@ -56,25 +56,6 @@ function clearInputs() {
   $chosenFile.val("")
 }
 
-//COOPER
-//This function will five the file data to the python server
-//Not entirely sure about the "function(err...)" part
-
-// LEELEE
-//** err is an error message built in that can be used in the event the request isn't successful **
-function translateFile(event) {
-  event.preventDefault();
-  var data = 1;//Get file upload from html
-  $.post("/postdata",
-  {file_data: data},
-  function(err, req, resp){
-    //Update data in html page (NOTE: Not gonna redirect)
-    // passing the response text to uploadCard, along with the event, for checks
-    console.log(resp, req, err);
-    uploadCard(event, resp);    
-  });
-}
-
 function toggle_ld(event) {
   event.preventDefault();
   $loader.prop('hidden', false);
@@ -86,7 +67,22 @@ function toggle_ld(event) {
 }
 
 function fireDownload(event) {
-    event.preventDefault();  
-    window.location.href = 'uploads/file.doc';  
+    event.preventDefault();
+    window.location.href = 'uploads/file.doc';
 }
 
+//COOPER
+//NOTE: These are functions that Cooper has added
+//This function will five the file data to the python server
+function translateFile(event) {
+  event.preventDefault();
+  var data = 1;//Get file upload from html
+  $.post("/postdata",
+  {file_data: data},
+  function(err, req, resp){
+    //Update data in html page (NOTE: Not gonna redirect)
+    // passing the response text to uploadCard, along with the event, for checks
+    console.log(resp, req, err);
+    uploadCard(event, resp);
+  });
+}
