@@ -1,3 +1,5 @@
+//Variables and basic functions
+
 var $inputTitle = $('#input-title');
 var $inputType = $('#input-type');
 var $chosenFile = $('#choose-file');
@@ -12,13 +14,17 @@ var $loader = $('.ld');
 var $cards = $('article');
 var $download = $('a');
 
-
 $inputTitle.on('keyup', submitButtonToggle);
 $inputType.on('keyup', submitButtonToggle);
 $chosenFile.on('change', submitButtonToggle)
 $submitButton.on('click', toggle_ld);
-$download.click(fireDownload);
+// $download.on('click', downloadFiles);
+$download.on('click', testProcess)
 
+////////////////////////////////////////////////////////////////////////////////
+
+//Functions
+//NOTE: These functions handle html interactions
 function submitButtonToggle() {
   if (($inputTitle.val() && $inputType.val()) && $chosenFile.val()) {
     $submitButton.prop('disabled', false);
@@ -66,23 +72,44 @@ function toggle_ld(event) {
   $download.prop('hidden', false);
 }
 
-function fireDownload(event) {
-    event.preventDefault();
-    window.location.href = 'uploads/file.doc';
-}
+////////////////////////////////////////////////////////////////////////////////
+
+//NOTE: These functions are for sever file interactions
 
 //COOPER
 //NOTE: These are functions that Cooper has added
 //This function will five the file data to the python server
+var CFiles_JSON; //C files from python
+
 function translateFile(event) {
   event.preventDefault();
   var data = 1;//Get file upload from html
+
   $.post("/postdata",
   {file_data: data},
   function(err, req, resp){
-    //Update data in html page (NOTE: Not gonna redirect)
     // passing the response text to uploadCard, along with the event, for checks
     console.log(resp, req, err);
     uploadCard(event, resp);
   });
+}
+
+function downloadFiles(event) {
+  event.preventDefault()
+  var zip = new JSZip();
+
+  //Add files to zip
+
+  zip.generateAsync({type:"blob"})
+    .then(blob => saveAs(blob, "nn4mc.zip"))
+    .catch(e => console.log(e))
+}
+
+function testProcess(event) {
+  //Call test function in server
+  $.get("/posttest",
+  function(err, req, resp){
+    console.log(resp, req, err);
+    CFiles_JSON = resp;
+  })
 }

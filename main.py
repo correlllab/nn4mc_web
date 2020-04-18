@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, jsonify, redirect, make_response, url_for
+from flask import Flask, render_template, request, jsonify
 import os
 import json
+# import nn4mc
 
 app = Flask(__name__)
 
@@ -36,6 +37,14 @@ def post_file_data():
 
     return files
 
+#Function for testing file process
+@app.route('/posttest', methods=['GET'])
+def post_test_data():
+    #Use nn4mc to process file
+
+    files = json.dumps('hi')
+
+    return files
 
 #Currently not a thing, could be used for graph visualization
 @app.route('/plot/<imgdata>')
