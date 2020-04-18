@@ -78,9 +78,10 @@ function toggle_ld(event) {
 
 //COOPER
 //NOTE: These are functions that Cooper has added
-//This function will five the file data to the python server
+
 var CFiles_JSON; //C files from python
 
+//This function will send the file data to the python server
 function translateFile(event) {
   event.preventDefault();
   var data = 1;//Get file upload from html
@@ -94,6 +95,7 @@ function translateFile(event) {
   });
 }
 
+//This function will zip the files and allow for download
 function downloadFiles(event) {
   event.preventDefault()
   var zip = new JSZip();
@@ -105,6 +107,8 @@ function downloadFiles(event) {
     .catch(e => console.log(e))
 }
 
+//This function will request an example JSON object from server
+//This JSON object is what the files will look like
 function testProcess(event) {
   //Call test function in server
   $.get("/posttest",
