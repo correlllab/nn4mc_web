@@ -42,7 +42,8 @@ def post_file_data():
 def post_test_data():
     #Use nn4mc to process file
 
-    files = json.dumps('hi')
+    with open('test_data/sample.json') as json_file:
+        files = json.load(json_file)
 
     return files
 
