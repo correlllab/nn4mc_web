@@ -63,6 +63,7 @@ function clearInputs() {
 // LEELEE
 //** err is an error message built in that can be used in the event the request isn't successful **
 function translateFile(event) {
+  console.log(event);
   event.preventDefault();
   var data = 1;//Get file upload from html
   $.post("/postdata",
