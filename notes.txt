@@ -1,23 +1,5 @@
 NOTES:
 
-LeeLee:
-  -The CSS won't load if you just open the html in your browser
-  because of some server stuff I changed. You can fix this by adding a
-  '..' in front of the '/static' in the href html stuff.
-
-  -We need to figure out a loading screen dealio for when a user uploads
-  files. Not sure if this is something you already know how to do, but here
-  is at least one link: https://www.w3schools.com/howto/howto_css_loader.asp
-
-  -I added one function into the JS scripts file that isn't finished yet.
-  That is how you will send the uploaded file to the server.
-
-  -The process should be:
-    --User uploads file
-    --User clicks translate button
-    --Loading screen initiated
-    --JS calls post method sending file data
-    --Python process data and returns new files
-    --JS redirects to new page with files ready for download
-    --Also potentially some visualization
-    --User can download files or start over
+It would be cool to have a documentation page so that the user
+could see how to work the website, and it would also have some
+more info on nn4mc and links to the python and c++ documentation/repos.

@@ -18,29 +18,40 @@
         <br>
         <input id="input-title" class="type-inputs" type="text" name="title">
         <br>
-        <label for="input-type" class="input-labels">Output Type(s)</label>
+        <label for="input-type" class="input-labels">Output Type</label>
         <br>
-        <input id="input-type" class="type-inputs" type="text" name="type" placeholder=".ckpt, .v7, ...">
+        <select id="input-type" class="type-inputs" type="text" name="type" placeholder=".ckpt, .v7, ...">
+          <option value="">select a file type</option>
+          <option value="hdf5">hdf5</option>
+          <option value="pytorch">pytorch</option>
+        </select> 
         <br>
         <div class="button-container" aria-label="button-container">
-          <label for="choose-file" class="file-label">Upload File
-            <input id="choose-file" type="File" name="choose-file" class="choose-add-buttons">
+          <label id="uploader" for="choose-file" class="file-label" style="opacity: .4">Upload File(s)
+            <input id="choose-file" type="file" name="choose-file" class="choose-add-buttons" multiple="file">
           </label>
-          <button id="submit-button" type="submit" name="submit-button" class="choose-add-buttons submit-button">
-            Swap File
-            <!-- <span class="ld" style="width:1em;height:1em;background:currentColor;"></span> -->
+          <button id="submit-button" type="submit" name="submit-button" class="choose-add-buttons submit-button" disabled>
+            Translate File
           </button>
         </div>
       </form>
   </section>
+
   <section>
     <img src='static/icons/loader.gif' class='ld' hidden>
     <main class="card-box">
     </main>
-    <footer>  <a hidden>Download now!</a> </footer>
-  </section>  
+    <footer>  <a hidden='true'>Download now!</a> </footer>
+  </section>     
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="/static/jquery.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="/static/js_lib/jquery.min.js"><\/script>')</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.3.0/jszip.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/static/js_lib/jszip.min.js"><\/script>')</script>
+
+  <!-- Or maybe it should be like this...
+  <script src="node_modules/jszip/dist/jszip.js"></script>
+  <script src="node_modules/file-saver/FileSaver.js"></script> -->
+
   <script type="text/javascript" src="/static/js/scripts.js"></script>
 </body>
 </html>

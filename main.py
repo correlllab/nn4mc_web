@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, jsonify, redirect, make_response, url_for
+from flask import Flask, render_template, request, jsonify
 import os
 import json
+# import nn4mc
 
 app = Flask(__name__)
 
@@ -18,6 +19,14 @@ def homepage():
     return render_template('homepage.html',
                             last_updated=dir_last_updated('static'))
 
+
+#Loads documentation page
+@app.route('/', methods=['GET'])
+def documentation():
+    return render_template('documentation.html',
+                            last_updated=dir_last_updated('static'))
+
+
 #Used by JS to send file data to python for processing
 @app.route('/postdata', methods=['POST'])
 def post_file_data():
@@ -25,6 +34,16 @@ def post_file_data():
 
     #Process the file here and then send back other data
     files = json.dumps('hi')
+
+    return files
+
+#Function for testing file process
+@app.route('/posttest', methods=['GET'])
+def post_test_data():
+    #Use nn4mc to process file
+
+    with open('test_data/sample.json') as json_file:
+        files = json.load(json_file)
 
     return files
 
