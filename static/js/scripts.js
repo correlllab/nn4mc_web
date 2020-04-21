@@ -74,7 +74,7 @@ function processFile() {
   }
 }
 
-// -----------------createS cards of output files-------------------//
+// -----------------creates cards of output files-------------------//
 function uploadCard(outputFiles) {
   Object.keys(outputFiles).forEach((filename, index) => {
   $outputAlbumArea.append(`
@@ -139,7 +139,7 @@ function testProcess() {
   //Call test function in server
   $.get("/posttest",
   function(err, req, resp){
-    console.log(req, resp, err);  
+    console.log(req, resp, err);
     CFiles_JSON = resp;     //????????? <------DO YOU STILL NEED THIS ????????????
     uploadCard(err);
   })
