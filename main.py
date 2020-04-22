@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import os
 import json
 import io
-import nn4mc.Translator as nnTR
+import nn4mc.translator as nnTR
 
 app = Flask(__name__)
 
@@ -37,23 +37,21 @@ def documentation():
 #resultant files are returned as JSON
 @app.route('/postdata', methods=['POST'])
 def post_file_data():
-    infile = request.form['file_data'] #Get the data from JS
-    # infile = json.loads(file)
+    try:
+        type = request.form['input-title']
+        infile = request.files['file']
 
-    #Extract file type and data
-    type = infile["type"]
-    data = infile["text"]
+        #Encode file as bytes and convert to BytesIO object
+        file_obj = io.BytesIO(infile)
 
-    #Encode file as bytes and convert to BytesIO object
-    byt = data.encode('utf-8')
-    file_obj = io.BytesIO(byt)
+        # files = nnTr.translateToJSON(file_obj, type) #Translate the file
 
-    files = nnTr.translateToJSON(file_obj, type) #Translate the file
+    except Exception as e: app.logger.info(e)
 
     return files #Return JSON output
 
 #Function for testing file process
-@app.route('/posttest', methods=['GET'])
+@app.route('/filetest', methods=['GET'])
 def post_test_data():
     with open('test_data/sample.json') as json_file:
         files = json.load(json_file)

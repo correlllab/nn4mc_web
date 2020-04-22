@@ -13,21 +13,21 @@
 <body>
   <section>
     <h1>NN<img type="logo" name="logo" src="https://image.flaticon.com/icons/svg/2103/2103658.svg" alt="Type Swap Logo">4MC</h1>
-      <form>
+      <form enctype="multipart/form-data">
         <label for="input-title" class="input-labels">Title</label>
         <br>
         <input id="input-title" class="type-inputs" type="text" name="title">
         <br>
-        <label for="input-type" class="input-labels">Output Type</label>
+        <label for="input-type" class="input-labels">Model Type</label>
         <br>
-        <select id="input-type" class="type-inputs" type="text" name="type" placeholder=".ckpt, .v7, ...">
-          <option value="">select a file type</option>
-          <option value="hdf5">hdf5</option>
-          <option value="pytorch">pytorch</option>
-        </select> 
+        <select id="input-type" class="type-inputs" type="text" name="type">
+          <option value="">--Select Model Type--</option>
+          <option value="hdf5">HDF5</option>
+          <option value="pytorch">PyTorch</option>
+        </select>
         <br>
         <div class="button-container" aria-label="button-container">
-          <label id="uploader" for="choose-file" class="file-label" style="opacity: .4">Upload File(s)
+          <label id="uploader" for="choose-file" class="file-label">Upload File(s)
             <input id="choose-file" type="file" name="choose-file" class="choose-add-buttons" multiple="file">
           </label>
           <button id="submit-button" type="submit" name="submit-button" class="choose-add-buttons submit-button" disabled>
@@ -42,7 +42,7 @@
     <main class="card-box">
     </main>
     <footer>  <a hidden='true'>Download now!</a> </footer>
-  </section>     
+  </section>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="/static/js_lib/jquery.min.js"><\/script>')</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.3.0/jszip.min.js"></script>
