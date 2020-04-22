@@ -37,6 +37,8 @@
       </form>
   </section>
 
+  <button id='download'> Download </button>
+
   <section>
     <img src='static/icons/loader.gif' class='ld' hidden>
     <main id="file_cards" class="card-box">
@@ -51,7 +53,8 @@
       {% endfor %}
       {% endif %}
     </main>
-    <footer>  <a hidden='{{ hide|default("true") }}'>Download now!</a> </footer>
+
+    <!-- <footer>  <a hidden='{{ hide|default("true") }}'>Download now!</a> </footer> -->
   </section>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -62,6 +65,7 @@
   <!-- Or maybe it should be like this...
   <script src="node_modules/jszip/dist/jszip.js"></script>
   <script src="node_modules/file-saver/FileSaver.js"></script> -->
+  <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
 
   <script type="text/javascript" src="/static/js/scripts.js"></script>
 </body>

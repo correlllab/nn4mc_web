@@ -8,7 +8,7 @@ var $deleteButton = $('#delete-button');
 var $loveButton = $('#love-button');
 var $loader = $('.ld');
 var $cards = $('article');
-var $download = $('a');
+var $download = $('#download');
 var output_files;
 
 
@@ -16,7 +16,7 @@ var output_files;
 $inputType.on('change', submitButtonToggle)
 $chosenFile.on('change', submitButtonToggle);
 $submitButton.on('click', loaderToggle);
-// $download.on('click', downloadFiles);
+$download.on('click', downloadFiles);
 
 ////////////////////////////////////////////////////////////////////////////////
 //Functions
@@ -77,7 +77,7 @@ function loaderToggle() {
 //This function will zip the files and allow for download
 function downloadFiles() {
   var zip = new JSZip();
-  
+
   //Add files to zip
   cards = document.getElementById('file_cards').children
   for(var i=0; i<cards.length; i++) {
