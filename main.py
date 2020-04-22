@@ -2,11 +2,10 @@ from flask import Flask, render_template, request
 import os
 import json
 import io
-import nn4mc.translator as nnTR
+import nn4mc.translator as nnTr
 
 app = Flask(__name__)
-
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0 #Lame fix but fuck caching
+app.config.from_object('config')
 
 #Weird caching fix found online: https://stackoverflow.com/questions/41144565/flask-does-not-see-change-in-js-file
 def dir_last_updated(folder):
@@ -20,14 +19,12 @@ def dir_last_updated(folder):
 #Loads homepage
 @app.route('/', methods=['GET'])
 def homepage():
-    return render_template('homepage.html',
-                            last_updated=dir_last_updated('static'))
+    return render_template('homepage.html')
 
 #Loads documentation page
-@app.route('/', methods=['GET'])
+@app.route('/documentation', methods=['GET'])
 def documentation():
-    return render_template('documentation.html',
-                            last_updated=dir_last_updated('static'))
+    return render_template('documentation.html')
 
 ################################################################################
 #Get and Post
@@ -35,23 +32,20 @@ def documentation():
 #Used by JS to send file data to python for processing
 #NOTE: File is coming in as string, is converted to bytes, and
 #resultant files are returned as JSON
-@app.route('/postdata', methods=['POST'])
+@app.route('/translateFile', methods=['POST'])
 def post_file_data():
-    try:
-        type = request.form['input-title']
-        infile = request.files['file']
+    type = request.form['user_title']
+    infile = request.files['model_file'].read()
 
-        #Encode file as bytes and convert to BytesIO object
-        file_obj = io.BytesIO(infile)
+    #Encode file as bytes and convert to BytesIO object
+    file_obj = io.BytesIO(infile)
 
-        # files = nnTr.translateToJSON(file_obj, type) #Translate the file
-
-    except Exception as e: app.logger.info(e)
+    files = nnTr.translateToJSON(file_obj, type) #Translate the file
 
     return files #Return JSON output
 
 #Function for testing file process
-@app.route('/filetest', methods=['GET'])
+@app.route('/jsontest', methods=['GET'])
 def post_test_data():
     with open('test_data/sample.json') as json_file:
         files = json.load(json_file)
@@ -65,4 +59,5 @@ def plot(imgdata):
     pass
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    # app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run()

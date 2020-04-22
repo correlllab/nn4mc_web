@@ -13,14 +13,14 @@
 <body>
   <section>
     <h1>NN<img type="logo" name="logo" src="https://image.flaticon.com/icons/svg/2103/2103658.svg" alt="Type Swap Logo">4MC</h1>
-      <form enctype="multipart/form-data">
+      <form action="/translateFile" method="post" enctype="multipart/form-data" >
         <label for="input-title" class="input-labels">Title</label>
         <br>
-        <input id="input-title" class="type-inputs" type="text" name="title">
+          <input id="input-title" class="type-inputs" type="text" name="user_title">
         <br>
         <label for="input-type" class="input-labels">Model Type</label>
         <br>
-        <select id="input-type" class="type-inputs" type="text" name="type">
+        <select id="input-type" class="type-inputs" type="text" name="model_type">
           <option value="">--Select Model Type--</option>
           <option value="hdf5">HDF5</option>
           <option value="pytorch">PyTorch</option>
@@ -28,7 +28,7 @@
         <br>
         <div class="button-container" aria-label="button-container">
           <label id="uploader" for="choose-file" class="file-label">Upload File(s)
-            <input id="choose-file" type="file" name="choose-file" class="choose-add-buttons" multiple="file">
+            <input id="choose-file" type="file" name="model_file" class="choose-add-buttons" multiple="file">
           </label>
           <button id="submit-button" type="submit" name="submit-button" class="choose-add-buttons submit-button" disabled>
             Translate File

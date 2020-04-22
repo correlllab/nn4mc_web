@@ -15,7 +15,7 @@ var output_files;
 //------------event listeners---------//
 $inputType.on('change', submitButtonToggle)
 $chosenFile.on('change', submitButtonToggle);
-$submitButton.on('click', translateFile);
+$submitButton.on('click', loaderToggle);
 // $download.on('click', downloadFiles);
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -39,8 +39,7 @@ function submitButtonToggle() {
 }
 
 //-------------toggles the loading animation on and off---------------//
-function toggle_ld(event) {
-  event.preventDefault();
+function loaderToggle() {
   $loader.prop('hidden', false);
   $outputAlbumArea.prop('hidden', true)
   setTimeout(function() {$loader.prop('hidden', true)}, 3000);
@@ -75,21 +74,8 @@ function uploadCard(outputFiles) {
 //COOPER
 //NOTE: These are functions that Cooper has added
 
-//This function will send the file data to the python server
-function translateFile(fileString) {
-  $.post("/postdata",
-  {type : $inputType},
-  function(resp, req, err){
-    // console.log(err)
-    //
-    // output_file = resp
-    // uploadCard(err)
-  });
-}
-
 //This function will zip the files and allow for download
-function downloadFiles(event) {
-  event.preventDefault()
+function downloadFiles() {
   var zip = new JSZip();
   //Add files to zip
 
@@ -105,9 +91,9 @@ function downloadFiles(event) {
 
 //This function will request an example JSON object from server
 //This JSON object is what the files will look like
-function testProcess() {
+function get_JSON_test_output() {
   //Call test function in server
-  $.get("/filetest",
+  $.get("/jsontest",
   function(resp, req, err){
     output_files = resp;
     uploadCard(resp);
