@@ -47,6 +47,28 @@ function loaderToggle() {
   $download.prop('hidden', false);
 }
 
+// //----------------parses the uploaded file into text-----------------//
+// function processFile() {
+//   var files = document.getElementById('choose-file').files;
+//   if (!files.length) {
+//     alert('Please select a file!');
+//     return;
+//   }
+//   for(let i = 0; i < files.length; i++){
+//     var file = files[i];
+//     var reader = new FileReader();
+//     reader.onloadend = function(evt) {
+//       evt.preventDefault();
+//       if (evt.target.readyState == FileReader.DONE) {
+//         translateFile(evt.target.result);
+//       }
+//     }
+//     var blob = file.slice(0, file.size);
+//     reader.readAsBinaryString(blob);
+//     testProcess();
+//   }
+// }
+
 // // -----------------creates cards of output files-------------------//
 // function uploadCard(outputFiles) {
 //   Object.keys(outputFiles).forEach((filename, index) => {
