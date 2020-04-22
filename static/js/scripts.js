@@ -42,31 +42,31 @@ function submitButtonToggle() {
 function loaderToggle() {
   $loader.prop('hidden', false);
   $outputAlbumArea.prop('hidden', true)
-  setTimeout(function() {$loader.prop('hidden', true)}, 3000);
-  setTimeout(function() {$outputAlbumArea.prop('hidden', false)}, 3000);
+  setTimeout(function() {$loader.prop('hidden', true)}, 7000);
+  setTimeout(function() {$outputAlbumArea.prop('hidden', false)}, 7000);
   $download.prop('hidden', false);
 }
 
-// -----------------creates cards of output files-------------------//
-function uploadCard(outputFiles) {
-  Object.keys(outputFiles).forEach((filename, index) => {
-  $outputAlbumArea.append(`
-    <article>
-      <h2>${filename}</h2>
-      <div class="file-container" aria-label="file-container">
-        <p alt="bookmarked file" class="new-file" id="new-file">${Object.values(outputFiles)[index]}</p>
-      </div>
-      <p>${$inputType.val()}</p>
-      <aside>
-        <button id="delete-button" type="submit" name="trash"></button>
-        <button id="love-button" type="icon" name="love"></button>
-      </aside>
-    </article>
-    `);
-  clearInputs();
-  submitButtonToggle();
-  })
-}
+// // -----------------creates cards of output files-------------------//
+// function uploadCard(outputFiles) {
+//   Object.keys(outputFiles).forEach((filename, index) => {
+//   $outputAlbumArea.append(`
+//     <article>
+//       <h2>${filename}</h2>
+//       <div class="file-container" aria-label="file-container">
+//         <p alt="bookmarked file" class="new-file" id="new-file">${Object.values(outputFiles)[index]}</p>
+//       </div>
+//       <p>${$inputType.val()}</p>
+//       <aside>
+//         <button id="delete-button" type="submit" name="trash"></button>
+//         <button id="love-button" type="icon" name="love"></button>
+//       </aside>
+//     </article>
+//     `);
+//   clearInputs();
+//   submitButtonToggle();
+//   })
+// }
 
 ////////////////////////////////////////////////////////////////////////////////
 //NOTE: These functions are for sever file interactions
@@ -77,7 +77,15 @@ function uploadCard(outputFiles) {
 //This function will zip the files and allow for download
 function downloadFiles() {
   var zip = new JSZip();
+  
   //Add files to zip
+  cards = document.getElementById('file_cards').children
+  for(var i=0; i<cards.length; i++) {
+    name = cards[i].id
+    data = cards[i].dataset.file_data
+
+    zip.file(name, data)
+  }
 
   title = "nn4mc"
   if ($inputTitle.val() != '') {

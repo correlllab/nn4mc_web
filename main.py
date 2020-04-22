@@ -40,9 +40,12 @@ def post_file_data():
     #Encode file as bytes and convert to BytesIO object
     file_obj = io.BytesIO(infile)
 
-    files = nnTr.translateToJSON(file_obj, type) #Translate the file
+    files = nnTr.translatePlain(file_obj, type) #Translate the file
 
-    return files #Return JSON output
+    # return files #Return JSON output
+
+    #Return homepage template w/ cards
+    return render_template('homepage.html', files=files, hide='false')
 
 #Function for testing file process
 @app.route('/jsontest', methods=['GET'])

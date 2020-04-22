@@ -1,5 +1,0 @@
-NOTES:
-
-It would be cool to have a documentation page so that the user
-could see how to work the website, and it would also have some
-more info on nn4mc and links to the python and c++ documentation/repos.

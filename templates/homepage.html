@@ -39,14 +39,25 @@
 
   <section>
     <img src='static/icons/loader.gif' class='ld' hidden>
-    <main class="card-box">
+    <main id="file_cards" class="card-box">
+      {% if files is defined %}
+      {% for name, data in files.items() %}
+      <article id="{{ name }}" data-file_data='{{ data }}'>
+        <h2>{{name}}</h2>
+        <div class="file-container" aria-label="file-container">
+          <p alt="bookmarked file" class="new-file">SOMETHING</p>
+        </div>
+      </article>
+      {% endfor %}
+      {% endif %}
     </main>
-    <footer>  <a hidden='true'>Download now!</a> </footer>
+    <footer>  <a hidden='{{ hide|default("true") }}'>Download now!</a> </footer>
   </section>
+
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="/static/js_lib/jquery.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="/static/node_modules/jquery.min.js"><\/script>')</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.3.0/jszip.min.js"></script>
-  <script>window.jQuery || document.write('<script src="/static/js_lib/jszip.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="/static/node_modules/jszip.min.js"><\/script>')</script>
 
   <!-- Or maybe it should be like this...
   <script src="node_modules/jszip/dist/jszip.js"></script>
