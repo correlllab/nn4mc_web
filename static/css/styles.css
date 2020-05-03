@@ -4,8 +4,8 @@ html {
   font-family: 'Open Sans', sans-serif;
 }
 
+/* ////////////////////////////////////////////////////////////////////////// */
 /*----------section stylings--------*/
-
 section {
   height: 50vh;
   width: 100%;
@@ -40,7 +40,6 @@ form {
   margin: .5rem 0 1.25rem 0;
   font-size: larger;
 }
-
 
 .button-container {
   display: flex;
@@ -91,13 +90,14 @@ form {
   color: #fff;
 }
 
+/* ////////////////////////////////////////////////////////////////////////// */
 /*------------main stylings-----------*/
 main {
   height: 50vh;
   background-color: #C2B2B4;
   background-size: 100%;
   padding: 1.5rem;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 article {
@@ -114,7 +114,7 @@ article {
 
 h2 {
   width: 100%;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 .file-container {
@@ -135,7 +135,7 @@ h2 {
 p {
   height: 5.175rem;
   width: 100%;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 aside {
@@ -171,3 +171,19 @@ aside {
 #love-button:focus {
   background-image: url('../icons/favorite-active.svg');
 }
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* Documenation and how to use stylings */
+.docu {
+	position: relative;
+	margin: 0;
+	width: 100%;
+    color: white;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.block-howto { background-color: 	#B22222; padding-bottom: 50px; }
+.block-howto h2 { color: #06406c; }
+.block-about { background-color: #348fd4; }
+.block-about h2 { color: #06406c; }
