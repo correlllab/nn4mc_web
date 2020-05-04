@@ -1,3 +1,6 @@
+#This is the main server file for nn4mc_web
+#NOTE: This is currently set up for deployment
+#on Google app engine.
 from flask import Flask, render_template, request
 import os
 import json
@@ -8,6 +11,7 @@ app = Flask(__name__)
 app.config.from_object('config')
 
 #Weird caching fix found online: https://stackoverflow.com/questions/41144565/flask-does-not-see-change-in-js-file
+#NOTE: May not need this anymore, consider removing
 def dir_last_updated(folder):
     return str(max(os.path.getmtime(os.path.join(root_path, f))
                    for root_path, dirs, files in os.walk(folder)
@@ -21,46 +25,27 @@ def dir_last_updated(folder):
 def homepage():
     return render_template('homepage.html')
 
-#Loads documentation page
-@app.route('/documentation', methods=['GET'])
-def documentation():
-    return render_template('documentation.html')
-
 ################################################################################
 #Get and Post
 
-#Used by JS to send file data to python for processing
-#NOTE: File is coming in as string, is converted to bytes, and
-#resultant files are returned as JSON
+#This function is used by the form to send user uploaded files and data
+#NOTE: The file is coming in as a filetype object is read to a string
+#and then converted to bytesio for use in nn4mc.
+#NOTE: Need to update this for multiple types
 @app.route('/translateFile', methods=['POST'])
 def post_file_data():
-    type = request.form['user_title']
-    infile = request.files['model_file'].read()
+    type = request.form['model_type'] #Request model type
+    infile = request.files['model_file'].read() #Request file(s)
 
     #Encode file as bytes and convert to BytesIO object
     file_obj = io.BytesIO(infile)
 
     files = nnTr.translatePlain(file_obj, type) #Translate the file
 
-    # return files #Return JSON output
-
     #Return homepage template w/ cards
-    return render_template('homepage.html', files=files, hide='false')
-
-#Function for testing file process
-@app.route('/jsontest', methods=['GET'])
-def post_test_data():
-    with open('test_data/sample.json') as json_file:
-        files = json.load(json_file)
-
-    return files
+    return render_template('homepage.html', files=files, processed='true')
 
 ################################################################################
-#Currently not a thing, could be used for graph visualization
-@app.route('/plot/<imgdata>')
-def plot(imgdata):
-    pass
-
+#NOTE: May need to update this for deployment
 if __name__ == '__main__':
-    # app.run(host='127.0.0.1', port=8080, debug=True)
     app.run()

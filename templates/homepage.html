@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>NN4MC</title>
-  <link rel="icon" type="icon/favicon" href="https://image.flaticon.com/icons/svg/2103/2103658.svg">
+  <link rel="icon" type="image/favicon" href="https://image.flaticon.com/icons/svg/2103/2103658.svg">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
   <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
@@ -16,8 +16,8 @@
     <h1>NN<img type="logo" name="logo" src="https://image.flaticon.com/icons/svg/2103/2103658.svg" alt="Type Swap Logo">4MC</h1>
     <h3> Neural Networks for Microcontrollers</h3>
 
-    <a href="#howto">How to use</a>
     <a href="#about">More about nn4mc</a>
+    <a href="#howto">How to use</a>
 
     <form action="/translateFile" method="post" enctype="multipart/form-data" >
       <label for="input-title" class="input-labels">Title</label>
@@ -48,11 +48,11 @@
   <button id='download'> Download </button>
 
   <section>
-    <img src='static/icons/loader.gif' class='ld' hidden>
-    <main id="file_cards" class="card-box">
+    <img src='static/image/loader.gif' class='ld' hidden>
+    <main id="file_cards" class="card-box" data-processed={{ processed|default('false') }}>
       {% if files is defined %}
       {% for name, data in files.items() %}
-      <article id="{{ name }}" data-file_data='{{ data }}'>
+      <article id='{{ name }}' data-file_data='{{ data }}'>
         <h2>{{name}}</h2>
         <div class="file-container" aria-label="file-container">
           <p alt="bookmarked file" class="new-file">SOMETHING</p>
@@ -69,17 +69,17 @@
 
 <!-- /////////////////////////////////////////////////////////////////////// -->
   <!-- This is the documentation -->
-  <a name="howto"></a>
-  <div class="docu block-howto">
-      <h1>How to Use</h1>
+  <a name="about"></a>
+  <div class="docu block-about">
+      <h1>About NN4MC</h1>
       <p>
           PLACEHOLDER
       </p>
   </div>
 
-  <a name="about"></a>
-  <div class="docu block-about">
-      <h1>About NN4MC</h1>
+  <a name="howto"></a>
+  <div class="docu block-howto">
+      <h1>How to Use</h1>
       <p>
           PLACEHOLDER
       </p>
@@ -97,5 +97,6 @@
 
   <!-- Our javascript -->
   <script type="text/javascript" src="/static/js/scripts.js"></script>
+
 </body>
 </html>
