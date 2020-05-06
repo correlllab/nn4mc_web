@@ -1,5 +1,4 @@
 //----------variable declarations--------//
-var $inputTitle = $('#input-title');
 var $inputType = $('#input-type');
 var $chosenFile = $('#choose-file');
 var $submitButton = $('#submit-button');
@@ -67,9 +66,6 @@ function downloadFiles() {
 
   //Check for user title, may not need this
   title = "nn4mc"
-  if ($inputTitle.val() != '') {
-    title = $inputTitle.val();
-  }
 
   //Download the zip file
   zip.generateAsync({type:"blob"})

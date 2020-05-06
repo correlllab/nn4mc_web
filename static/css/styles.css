@@ -1,40 +1,39 @@
-
 html {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
 
 /* ////////////////////////////////////////////////////////////////////////// */
-/*----------section stylings--------*/
-section {
-  height: 50vh;
+/*----------input stylings--------*/
+.input {
+  height: 400px;
   width: 100%;
-  background-color: #3E2A35;
+  background-color: whitesmoke;
   color: white;
+  padding-bottom: 3rem;
 }
 
-h1 {
-  font-weight: 800;
-  font-size: 5rem;
-  padding: 2rem 0 1rem 0;
+.input h1 img {
+  width: 50%;
+  padding-top: 1.25rem;
 }
 
-h1 img {
-  height: 4rem;
-  width: 4.4rem;
+.input h3 {
+  color: black;
+  padding-bottom: 3rem;
 }
 
-form {
+.input form {
   width: 45%;
   margin: auto;
 }
 
-.input-labels {
+.input-label {
   float: left;
-  color: #C2B2B4;
+  color: black;
 }
 
-.type-inputs {
+.input-type {
   height: 2.5rem;
   width: 100%;
   margin: .5rem 0 1.25rem 0;
@@ -59,15 +58,15 @@ form {
     font-size: large;
     height: 2.25rem;
     width: 10rem;
-    color: #fff;
-    background-color: #5B4447;
+    color: black;
+    background-color: #1AB5F2;
     display: inline-block;
     padding-top: 1.25rem;
 }
 
 #choose-file:focus, .file-label:focus,
 #choose-file:hover, .file-label:hover {
-    background-color: #938284;
+    background-color: #45C7EF;
 }
 
 .submit-button:disabled {
@@ -75,9 +74,9 @@ form {
   height: 3.5rem;
   width: 10rem;
   border: none;
-  background-color: #5B4447;
-  opacity: .4;
-  color: #fff;
+  background-color: #1AB5F2;
+  opacity: .6;
+  color: black;
 }
 
 .submit-button {
@@ -85,92 +84,38 @@ form {
   height: 3.5rem;
   width: 10rem;
   border: none;
-  background-color: #5B4447;
+  background-color: #1AB5F2;
   opacity: 1;
-  color: #fff;
+  color: black;
 }
 
 /* ////////////////////////////////////////////////////////////////////////// */
-/*------------main stylings-----------*/
-main {
-  height: 50vh;
-  background-color: #C2B2B4;
+/*------------download stylings-----------*/
+.download {
+  height: 40vh;
+  background-color: #1AB5F2;
   background-size: 100%;
   padding: 1.5rem;
-  /* overflow: scroll; */
 }
 
-article {
+.download button {
+  font-size: large;
+  height: 3.5rem;
+  width: 10rem;
+  border: none;
+}
+
+.download article {
   display: inline-block;
   position: relative;
-  height: 20rem;
-  width: 15rem;
-  border: 2px solid #938284;
+  height: 2rem;
+  width: auto;
+  border: 5px solid white;
   background-color: #fff;
   color: #3E2A35;
   padding-top: 1rem;
   margin: 1.5rem;
 }
-
-h2 {
-  width: 100%;
-  /* overflow: scroll; */
-}
-
-.file-container {
-  height: 10.9rem;
-  width: 14.9rem;
-}
-
-.new-file {
-  padding:1rem 0 1rem 0;
-  margin-top: 2rem;
-  height: auto;
-  width: auto;
-  max-height: 10.9rem;
-  max-width: 14.9rem;
-  border: 1px solid black;
-}
-
-p {
-  height: 5.175rem;
-  width: 100%;
-  /* overflow: scroll; */
-}
-
-aside {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  background-color: #5B4447;
-  padding: .5rem 0 0 0;
-  bottom: 0;
-
-}
-
-/* #delete-button, #love-button {
-  height: 2.5rem;
-  width: 2.5rem;
-  background-color: #5B4447;
-}
-
-#delete-button {
-  background-image: url('../icons/delete.svg');
-  background-size: cover;
-}
-
-#delete-button:focus {
-  background-image: url('../icons/delete-active.svg');
-}
-
-#love-button {
-  background-image: url('../icons/favorite.svg');
-  background-size: cover;
-}
-
-#love-button:focus {
-  background-image: url('../icons/favorite-active.svg');
-} */
 
 /* ////////////////////////////////////////////////////////////////////////// */
 /* Documenation and how to use stylings */
@@ -179,21 +124,43 @@ aside {
 	margin: 0;
 	width: 100%;
     color: white;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
-.block-howto { background-color: 	#B22222; padding-bottom: 50px; }
-.block-howto h2 { color: #06406c; }
-.block-about { background-color: #348fd4; }
-.block-about h2 { color: #06406c; }
-
-a, a:visited {
+.docu h2 {
+  color: black;
+  font-size: normal;
+	font-size: 70px;
+	font-weight: normal;
+	margin: 0;
+}
+.docu p {
+	width: 60vw;
+	margin: 40px auto;
 	color: #000;
+  line-height: 200%;
+}
+
+.docu a, a:visited {
+	  color: black;
     font-size: 12px;
+    text-decoration: none;
+    font-weight: normal;
+    font-style:normal;
+    background-color: #1AB5F2;
+    padding:10px 15px;
+    border-radius: 10px;
     text-decoration: none;
 }
 
-a:hover {
+.docu a:hover {
     text-decoration: underline;
 }
+
+.block-about { background-color: #F2A03C; }
+.block-howto { background-color: 	#F25430; }
+
+/* These arent working for some reason */
+.block-howto ol { color: black; list-style-type: lower-roman;}
+.block-howto ol > ul { color: black; list-style-type: square;}

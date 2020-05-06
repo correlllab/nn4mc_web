@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>NN4MC</title>
-  <link rel="icon" type="image/favicon" href="https://image.flaticon.com/icons/svg/2103/2103658.svg">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
   <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
@@ -12,26 +11,20 @@
 <!-- /////////////////////////////////////////////////////////////////////// -->
 <body>
   <!-- This is the main form and input -->
-  <section>
-    <h1>NN<img type="logo" name="logo" src="https://image.flaticon.com/icons/svg/2103/2103658.svg" alt="Type Swap Logo">4MC</h1>
+  <div class=input>
+    <h1> <a href="/"><img type="logo" name="logo" src="static/image/nn4mc-v2-b.png" alt="NN4MC Logo"></a> </h1>
     <h3> Neural Networks for Microcontrollers</h3>
 
-    <a href="#about">More about nn4mc</a>
-    <a href="#howto">How to use</a>
-
     <form action="/translateFile" method="post" enctype="multipart/form-data" >
-      <label for="input-title" class="input-labels">Title</label>
+      <label for="input-type" class="input-label">Model Type</label>
       <br>
-        <input id="input-title" class="type-inputs" type="text" name="user_title">
-      <br>
-      <label for="input-type" class="input-labels">Model Type</label>
-      <br>
-      <select id="input-type" class="type-inputs" type="text" name="model_type">
+      <select id="input-type" class="input-type" type="text" name="model_type">
         <option value="">--Select Model Type--</option>
         <option value="hdf5">HDF5</option>
         <option value="pytorch" disabled>PyTorch</option>
       </select>
       <br>
+
       <div class="button-container" aria-label="button-container">
         <label id="uploader" for="choose-file" class="file-label">Upload File(s)
           <input id="choose-file" type="file" name="model_file" class="choose-add-buttons" multiple="file">
@@ -41,37 +34,27 @@
         </button>
       </div>
     </form>
-  </section>
+  </div>
 
 <!-- /////////////////////////////////////////////////////////////////////// -->
   <!-- This is the download area -->
-  <button id='download'> Download </button>
-
-  <section>
-    <img src='static/image/loader.gif' class='ld' hidden>
-    <main id="file_cards" class="card-box" data-processed={{ processed|default('false') }}>
-      {% if files is defined %}
-      {% for name, data in files.items() %}
-      <article id='{{ name }}' data-file_data='{{ data }}'>
-        <h2>{{name}}</h2>
-        <div class="file-container" aria-label="file-container">
-          <p alt="bookmarked file" class="new-file">SOMETHING</p>
-        </div>
-        <aside>
-          <button id="delete-button" type="submit" name="trash"></button>
-          <button id="love-button" type="icon" name="love"></button>
-        </aside>
-      </article>
-      {% endfor %}
-      {% endif %}
-    </main>
-  </section>
+  <img src='static/image/loader.gif' class='ld' hidden>
+  {% if files is defined %}
+  <div id="file_cards" class="download card-box" data-processed={{ processed|default('false') }}>
+    <button id='download' > Download </button>
+    </br>
+    {% for name, data in files.items() %}
+    <article id='{{ name }}' data-file_data='{{ data }}'>
+      <h6>{{name}}</h6>
+    </article>
+    {% endfor %}
+  </div>
+  {% endif %}
 
 <!-- /////////////////////////////////////////////////////////////////////// -->
   <!-- This is the documentation -->
-  <a name="about"></a>
   <div class="docu block-about">
-      <h1>About NN4MC</h1>
+      <h2>About NN4MC</h2>
       <p>
           Neural Networks for Microcontrollers (nn4mc) is a software package
           designed to translate pre-trained neural network models into C code
@@ -89,26 +72,28 @@
           also exists the original C++ implementation. Anyone further interested
           in nn4mc, collaborating, or to submit an issue please see the links below.
       </p>
-      <ul>
-        <li> <a href="PLACEHOLDER">nn4mc Python</a></li>
-        <li> <a href="PLACEHOLDER">nn4mc C++</a></li>
-        <li> <a href="PLACEHOLDER">nn4mc Web</a></li>
-        <li> <a href="PLACEHOLDER">nn4mc Documentation</a></li>
-        <li> <a href="PLACEHOLDER">Original nn4mc Paper</a></li>
-      </ul>
+      <p class='links'>
+        <a href="PLACEHOLDER">nn4mc Python</a>
+        <a href="PLACEHOLDER">nn4mc C++</a>
+        <a href="PLACEHOLDER">nn4mc Web</a>
+      </p>
+      <p class='links'>
+        <a href="PLACEHOLDER">nn4mc Documentation</a>
+        <a href="PLACEHOLDER">nn4mc Paper</a>
+      </p>
 
   </div>
 
-  <a name="howto"></a>
   <div class="docu block-howto">
-      <h1>How to Use</h1>
+      <h2>How to Use</h2>
       <p>
           Using nn4mc is very straightforward, just follow the steps below.</br>
           NOTE: Currently only HDF5 filetypes are supported.</br>
           NOTE: To translate from PyTorch you will need to upload a .pkl file
           with the model parameters and a ... file.
       </p>
-      <ol>
+
+      <ol class="list-howto">
         <li>Select the file type you would like to use from the drop down</li>
         <li>Upload the required files</li>
           <ul>
