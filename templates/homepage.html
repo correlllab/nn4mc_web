@@ -29,7 +29,7 @@
       <select id="input-type" class="type-inputs" type="text" name="model_type">
         <option value="">--Select Model Type--</option>
         <option value="hdf5">HDF5</option>
-        <option value="pytorch">PyTorch</option>
+        <option value="pytorch" disabled>PyTorch</option>
       </select>
       <br>
       <div class="button-container" aria-label="button-container">
@@ -73,16 +73,54 @@
   <div class="docu block-about">
       <h1>About NN4MC</h1>
       <p>
-          PLACEHOLDER
+          Neural Networks for Microcontrollers (nn4mc) is a software package
+          designed to translate pre-trained neural network models into C code
+          for use in embedded systems. Although originally designed with robotics
+          in mind, nn4mc is perfect for anyone wishing to embed intelligence.
       </p>
+      <p>
+          Originally developed by Sarah Aguasvivas-Manzano, Dana Hughes, and Cooper
+          Simpson, nn4mc is currently maintained and supported through the Correll
+          Robotics Lab at the University of Colorado Boulder. The design and maintenance
+          for this website is attributed to LeeLee Graham and Cooper Simpson.
+      </p>
+      <p>
+          This website is powered by a Python implementation of nn4mc, but there
+          also exists the original C++ implementation. Anyone further interested
+          in nn4mc, collaborating, or to submit an issue please see the links below.
+      </p>
+      <ul>
+        <li> <a href="PLACEHOLDER">nn4mc Python</a></li>
+        <li> <a href="PLACEHOLDER">nn4mc C++</a></li>
+        <li> <a href="PLACEHOLDER">nn4mc Web</a></li>
+        <li> <a href="PLACEHOLDER">nn4mc Documentation</a></li>
+        <li> <a href="PLACEHOLDER">Original nn4mc Paper</a></li>
+      </ul>
+
   </div>
 
   <a name="howto"></a>
   <div class="docu block-howto">
       <h1>How to Use</h1>
       <p>
-          PLACEHOLDER
+          Using nn4mc is very straightforward, just follow the steps below.</br>
+          NOTE: Currently only HDF5 filetypes are supported.</br>
+          NOTE: To translate from PyTorch you will need to upload a .pkl file
+          with the model parameters and a ... file.
       </p>
+      <ol>
+        <li>Select the file type you would like to use from the drop down</li>
+        <li>Upload the required files</li>
+          <ul>
+            <li>HDF5 From Keras/Tensorflow</li>
+            <li>PyTorch</li>
+          </ul>
+        <li>Click translate</li>
+          <ul>
+            <li>Once the files are finished prcessing they will show up below the form</li>
+          </ul>
+        <li>Download the files as a zip</li>
+      </ol>
   </div>
 
 <!-- /////////////////////////////////////////////////////////////////////// -->

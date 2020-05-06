@@ -148,7 +148,7 @@ aside {
 
 }
 
-#delete-button, #love-button {
+/* #delete-button, #love-button {
   height: 2.5rem;
   width: 2.5rem;
   background-color: #5B4447;
@@ -170,7 +170,7 @@ aside {
 
 #love-button:focus {
   background-image: url('../icons/favorite-active.svg');
-}
+} */
 
 /* ////////////////////////////////////////////////////////////////////////// */
 /* Documenation and how to use stylings */
@@ -187,3 +187,13 @@ aside {
 .block-howto h2 { color: #06406c; }
 .block-about { background-color: #348fd4; }
 .block-about h2 { color: #06406c; }
+
+a, a:visited {
+	color: #000;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
