@@ -3,5 +3,7 @@ __pycache__/
 *.egg-info/
 build/
 dist/
+test_data/
+README.md
 
 .DS_Store
