@@ -11,12 +11,12 @@
 <!-- /////////////////////////////////////////////////////////////////////// -->
 <body>
   <!-- This is the main form and input -->
-  <div class=input>
-    <h1> <a href="/"><img type="logo" name="logo" src="static/image/nn4mc-v2-b.png" alt="NN4MC Logo"></a> </h1>
-    <h3> Neural Networks for Microcontrollers</h3>
-
+  <div class="input">
+    <h1> <a href="/"><img type="logo" name="logo" src="static/image/nn4mc-v2-b.png" alt="NN4MC Logo" width="500"></a> </h1>
+    <!--<h3> Neural Networks for Microcontrollers</h3>-->
+	<br> 
     <form action="/translateFile" method="post" enctype="multipart/form-data" >
-      <label for="input-type" class="input-label">Model Type</label>
+      <label for="input-type" class="input-label">Select your model type: </label>
       <br>
       <select id="input-type" class="input-type" type="text" name="model_type">
         <option value="">--Select Model Type--</option>
@@ -38,75 +38,18 @@
 
 <!-- /////////////////////////////////////////////////////////////////////// -->
   <!-- This is the download area -->
-  <img src='static/image/loader.gif' class='ld' hidden>
+  <img src="static/image/loader.gif" class="ld" alt="loader" hidden>
   {% if files is defined %}
-  <div id="file_cards" class="download card-box" data-processed={{ processed|default('false') }}>
-    <button id='download' > Download </button>
-    </br>
+  <div id="file_cards" class="download card-box" data-processed={{processed|default("false")}}>
     {% for name, data in files.items() %}
-    <article id='{{ name }}' data-file_data='{{ data }}'>
+    <article id="{{ name }}" data-file_data="{{ data }}">
       <h6>{{name}}</h6>
     </article>
     {% endfor %}
+	  <p> <button id="download" > Download Code </button> </p>
   </div>
   {% endif %}
 
-<!-- /////////////////////////////////////////////////////////////////////// -->
-  <!-- This is the documentation -->
-  <div class="docu block-about">
-      <h2>About NN4MC</h2>
-      <p>
-          Neural Networks for Microcontrollers (nn4mc) is a software package
-          designed to translate pre-trained neural network models into C code
-          for use in embedded systems. Although originally designed with robotics
-          in mind, nn4mc is perfect for anyone wishing to embed intelligence.
-      </p>
-      <p>
-          Originally developed by Sarah Aguasvivas-Manzano, Dana Hughes, and Cooper
-          Simpson, nn4mc is currently maintained and supported through the Correll
-          Robotics Lab at the University of Colorado Boulder. The design and maintenance
-          for this website is attributed to LeeLee Graham and Cooper Simpson.
-      </p>
-      <p>
-          This website is powered by a Python implementation of nn4mc, but there
-          also exists the original C++ implementation. Anyone further interested
-          in nn4mc, collaborating, or to submit an issue please see the links below.
-      </p>
-      <p class='links'>
-        <a href="https://github.com/correlllab/nn4mc_py">nn4mc Python</a>
-        <a href="https://github.com/correlllab/nn4mc_cpp">nn4mc C++</a>
-        <a href="https://github.com/correlllab/nn4mc_web">nn4mc Web</a>
-      </p>
-      <p class='links'>
-        <a href="https://nn4mc.readthedocs.io/">nn4mc Documentation</a>
-        <a href="https://arxiv.org/abs/1911.03848">nn4mc Paper</a>
-      </p>
-
-  </div>
-
-  <div class="docu block-howto">
-      <h2>How to Use</h2>
-      <p>
-          Using nn4mc is very straightforward, just follow the steps below.</br>
-          NOTE: Currently only HDF5 filetypes are supported.</br>
-          NOTE: To translate from PyTorch you will need to upload a .pkl file
-          with the model parameters and a ... file.
-      </p>
-
-      <ol class="list-howto">
-        <li>Select the file type you would like to use from the drop down</li>
-        <li>Upload the required files</li>
-          <ul>
-            <li>HDF5 From Keras/Tensorflow</li>
-            <li>PyTorch</li>
-          </ul>
-        <li>Click translate</li>
-          <ul>
-            <li>Once the files are finished prcessing they will show up below the form</li>
-          </ul>
-        <li>Download the files as a zip</li>
-      </ol>
-  </div>
 
 <!-- /////////////////////////////////////////////////////////////////////// -->
   <!-- These are the scripts...

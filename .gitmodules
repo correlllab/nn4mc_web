@@ -1,0 +1,3 @@
+[submodule "static/nn4mc.github.io"]
+	path = static/nn4mc.github.io
+	url = https://github.com/sarahaguasvivas/nn4mc.github.io.git
