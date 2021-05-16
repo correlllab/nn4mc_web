@@ -39,8 +39,9 @@
 <!-- /////////////////////////////////////////////////////////////////////// -->
   <!-- This is the download area -->
   <img src="static/image/loader.gif" class="ld" alt="loader" hidden>
-  {% if files is defined %}
-  <div id="file_cards" class="download card-box" data-processed={{processed|default("false")}}>
+	<div id="file_cards" class="download card-box"> 
+		<!-- data-processed={{processed|default("false")}}> -->
+ 	{% if files is defined %}
     {% for name, data in files.items() %}
     <article id="{{ name }}" data-file_data="{{ data }}">
       <h6>{{name}}</h6>

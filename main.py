@@ -48,4 +48,5 @@ def post_file_data():
 ################################################################################
 #NOTE: May need to update this for deployment
 if __name__ == '__main__':
+    app.debug = True
     app.run()

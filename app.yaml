@@ -1,12 +1,9 @@
 #Basic python3 runtime
-runtime: python38
+runtime: python37
 runtime_config:
-  python_version: 3
+  python_version: 3.7
 
 #Application
-.gcloudignore
-.gitignore
-
 env: standard
 default_expiration: "7d"
 
