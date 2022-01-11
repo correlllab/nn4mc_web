@@ -1,3 +1,5 @@
+#!/usr/bin/python3.8
+
 #This is the main server file for nn4mc_web
 #NOTE: This is currently set up for deployment
 #on Google app engine.
@@ -47,6 +49,6 @@ def post_file_data():
 
 ################################################################################
 #NOTE: May need to update this for deployment
-#if __name__ == '__main__':
-app.debug = True
-app.run()
+if __name__ == '__main__':
+    app.debug = True
+    app.run()

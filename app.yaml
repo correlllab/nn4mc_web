@@ -1,7 +1,5 @@
 #Basic python3 runtime
-runtime: python37
-    apt_version: 1
-    threadsafe: true
+runtime: python38
 runtime_config:
   python_version: 3.8
 
