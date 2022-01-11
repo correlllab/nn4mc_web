@@ -1,7 +1,9 @@
 #Basic python3 runtime
 runtime: python37
+    apt_version: 1
+    threadsafe: true
 runtime_config:
-  python_version: 3.7
+  python_version: 3.8
 
 #Application
 env: standard
@@ -12,4 +14,4 @@ handlers:
   - url: /static
     static_dir: static
   - url: /.*
-    script: auto
+    script: auto 
