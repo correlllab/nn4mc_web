@@ -27,9 +27,9 @@ def dir_last_updated(folder):
 def homepage():
     return render_template('homepage.html')
 
-@app.route("/nn4mc.zip", methods= ['GET'])
+@app.route("/translateFile", methods= ['GET'])
 def downloadFile():
-    return render_template('download.html', value='nn4mc.zip') 
+    return render_template('download.html') 
 ################################################################################
 #Get and Post
 
