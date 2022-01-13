@@ -27,9 +27,9 @@ def dir_last_updated(folder):
 def homepage():
     return render_template('homepage.html')
 
-@app.route("/translateFile", methods= ['GET'])
-def downloadFile():
-    return render_template('download.html') 
+@app.route("/translateFile/nn4mc.zip", methods= ['GET'])
+def download_file():
+    return render_template('download.html', value = 'nn4mc.zip') 
 ################################################################################
 #Get and Post
 
@@ -46,7 +46,7 @@ def post_file_data():
     file_obj = io.BytesIO(infile)
 
     files = nnTr.translatePlain(file_obj, type) #Translate the file
-
+    
     #Return homepage template w/ cards
     return render_template('homepage.html', files=files, processed='true')
 
