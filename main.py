@@ -27,12 +27,9 @@ def dir_last_updated(folder):
 def homepage():
     return render_template('homepage.html')
 
-@app.route("/download")
+@app.route("/downloadfile/nn4mc.zip", methods= ['GET'])
 def downloadFile():
-    download_req_id = request.args.get('download_req_id')
-    path = "/".join([APP_ROOT, "nn4mc"])
-    video = path + '/' + download_req_id + '.zip'
-    return send_file(video, as_attachment=True)
+    return render_template('download.html', value='nn4mc.zip') 
 ################################################################################
 #Get and Post
 
