@@ -46,7 +46,8 @@ def post_file_data():
     file_obj = io.BytesIO(infile)
 
     files = nnTr.translatePlain(file_obj, type) #Translate the file
-
+    
+    downloadFile()
     #Return homepage template w/ cards
     return render_template('homepage.html', files=files, processed='true')
 
