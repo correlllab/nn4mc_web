@@ -27,7 +27,7 @@ def dir_last_updated(folder):
 def homepage():
     return render_template('homepage.html')
 
-@app.route("/", methods= ['GET'])
+@app.route("/translateFile", methods= ['GET'])
 def downloadFile():
     return render_template('download.html') 
 ################################################################################
