@@ -39,6 +39,7 @@
 <!-- /////////////////////////////////////////////////////////////////////// -->
   <!-- This is the download area -->
   <img src="static/image/loader.gif" class="ld" alt="loader" hidden>
+    <script type="text/javascript" src="/static/js/scripts.js"></script>
 	<div id="file_cards" class="download card-box"> 
 		<!-- data-processed={{processed|default("false")}}> -->
  	{% if files is defined %}
@@ -47,7 +48,7 @@
       <h6>{{name}}</h6>
     </article>
     {% endfor %}
-    <p><a href="javascript:downloadFiles();"> <button id="download" method = "click" name = "download" type="download" class = 'btn btn-default'> Download Code </button></a></p>
+    <p><a href="#" onClick="downloadFiles();"><button id="download" name = "download" type="download" class = 'btn btn-default'> Download Code </button></a></p>
   </div>
   {% endif %}
 
