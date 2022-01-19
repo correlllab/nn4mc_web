@@ -102,9 +102,13 @@ html {
 .download button {
   font-size: large;
   height: 3.5rem;
-  width: 10rem;
-  border: none;
-  color : #212529;
+  width: 25rem;
+  border: black;
+  color : white;
+}
+
+.download button:hover{
+	color: blue;
 }
 
 .download article {
