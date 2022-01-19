@@ -100,15 +100,16 @@ html {
 }
 
 .download button {
-  font-size: large;
+  background-color: DodgerBlue;
+  font-size: 20px;
   height: 3.5rem;
   width: 25rem;
-  border: black;
+  border: none;
   color : white;
 }
 
 .download button:hover{
-	color: blue;
+	color: RoyalBlue;
 }
 
 .download article {
