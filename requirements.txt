@@ -3,5 +3,5 @@ nn4mc==0.2.9a0
 numpy==1.22.0
 h5py==3.6.0
 keras==2.7.0
-tensorflow==2.7.0
+tensorflow==2.8.0
 google
